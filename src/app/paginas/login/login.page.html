@@ -1,0 +1,16 @@
+<ion-app>
+  <ion-content>
+    <ion-item>
+      <ion-input type="text" label="nombre" [(ngModel)]="nombre" name="nombre" placeholder="Escribe tu nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" label="usuario" [(ngModel)]="usuarios" name="usuario" placeholder="Ingrese el usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" label="contraseña" [(ngModel)]="password" name="contraseña" placeholder="Ingrese su contraseña"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" (click)="ingresar()">Enviar</ion-button>
+  </ion-content>
+
+</ion-app>
