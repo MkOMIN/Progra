@@ -12,6 +12,7 @@ export class LoginPage implements OnInit {
   nombre:string =""
   usuario :string =""
   password :string =""
+  isModalOpen = false;
 
   constructor(public mensaje:ToastController, private route:Router,public alerta:AlertController) { }
 
@@ -50,4 +51,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  setOpen(isOpen: boolean) {
+      this.isModalOpen = isOpen;
+    }
 }
+
