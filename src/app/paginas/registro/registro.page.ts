@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-registro',
+  templateUrl: './registro.page.html',
+  styleUrls: ['./registro.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegistroPage implements OnInit {
 
   nombre: string = "";
   usuario: string = "";
   password: string = "";
-  isModalOpen = false;
 
   constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController) { }
 
   async mensajeExito() {
     const toast = await this.mensaje.create({
-      message: 'Inicio de sesión exitoso',
+      message: 'Registro de Usuario exitoso',
       duration: 2000
     });
     toast.present();
@@ -27,20 +27,16 @@ export class LoginPage implements OnInit {
   async MensajeError() {
     const alert = await this.alerta.create({
       header: 'Error',
-      subHeader: 'Error en el inicio de sesión',
-      message: 'El inicio de sesión falló',
+      subHeader: 'Error en el Registro de Usuario',
+      message: 'El Registro de Usuario falló',
       buttons: ['Aceptar']
     });
 
     await alert.present();
   }
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-
-  ingresar() {
-    if (this.usuario === "" && this.password === "") { // Cambiado && por ||
+  registrarse() {
+    if (this.nombre && this.usuario === "" && this.password === "") { // Cambiado && por ||
       console.log("No pueden estar los campos vacíos");
       this.MensajeError();
     } else {
@@ -48,11 +44,6 @@ export class LoginPage implements OnInit {
       this.mensajeExito();
       this.route.navigate(["/home"]);
     }
-  }
-  
-  registrarse(){
-    console.log("Registro");
-    this.route.navigate(["/registro"]);
   }
   
   ngOnInit() {

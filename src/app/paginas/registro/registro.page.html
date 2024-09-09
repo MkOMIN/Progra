@@ -1,0 +1,27 @@
+<ion-app>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Registro</ion-title>
+          <ion-buttons slot="end">
+            <ion-button>Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input class="inputs" type="text" label="Nombre:" name="nombre" [(ngModel)]="nombre"
+            placeholder="Ingrese su Nombre Completo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="inputs" type="text" label="Email:" name="usuario" [(ngModel)]="usuario"
+            placeholder="Ingrese su Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="inputs" type="password" label="Constraseña:" [(ngModel)]="password" name="password"
+            placeholder="Escribe tu contraseña"></ion-input>
+        </ion-item>
+        
+        <ion-button expand="block" (click)="registrarse()">Registrarse</ion-button>
+
+      </ion-content>
+</ion-app>
