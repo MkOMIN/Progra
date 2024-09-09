@@ -13,6 +13,7 @@ export class RegistroPage implements OnInit {
   nombre: string = "";
   usuario: string = "";
   password: string = "";
+  telefono: string = "";
 
   constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController) { }
 
@@ -27,8 +28,8 @@ export class RegistroPage implements OnInit {
   async MensajeError() {
     const alert = await this.alerta.create({
       header: 'Error',
-      subHeader: 'Error en el Registro de Usuario',
-      message: 'El Registro de Usuario falló',
+      subHeader: 'Falta Rellenar algun campo',
+      message: 'Rellene el campo faltante y vuelva a intentar',
       buttons: ['Aceptar']
     });
 
@@ -36,7 +37,7 @@ export class RegistroPage implements OnInit {
   }
 
   registrarse() {
-    if (this.nombre && this.usuario === "" && this.password === "") { // Cambiado && por ||
+    if (this.nombre === "" && this.usuario === "" && this.password === "" && this.telefono==="") { // Cambiado && por ||
       console.log("No pueden estar los campos vacíos");
       this.MensajeError();
     } else {

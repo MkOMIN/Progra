@@ -9,16 +9,20 @@
       </ion-header>
       <ion-content class="ion-padding">
         <ion-item>
-          <ion-input class="inputs" type="text" label="Nombre:" name="nombre" [(ngModel)]="nombre"
+          <ion-input type="text" label="Nombre:" name="nombre" [(ngModel)]="nombre"
             placeholder="Ingrese su Nombre Completo"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input class="inputs" type="text" label="Email:" name="usuario" [(ngModel)]="usuario"
+          <ion-input type="text" label="Email:" name="usuario" [(ngModel)]="usuario"
             placeholder="Ingrese su Email"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input class="inputs" type="password" label="Constraseña:" [(ngModel)]="password" name="password"
+          <ion-input type="password" label="Constraseña:" [(ngModel)]="password" name="password"
             placeholder="Escribe tu contraseña"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-input type="telefono" label="Telefono:" [(ngModel)]="telefono" name="telefono"
+            placeholder="Escribe tu Telefono"></ion-input>
         </ion-item>
         
         <ion-button expand="block" (click)="registrarse()">Registrarse</ion-button>
