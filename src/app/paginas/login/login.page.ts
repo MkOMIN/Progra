@@ -26,8 +26,8 @@ export class LoginPage implements OnInit {
   async MensajeError() {
     const alert = await this.alerta.create({
       header: 'Error',
-      subHeader: 'Error de inicio de seson ',
-      message: 'El inicio de sesion fallo ',
+      subHeader: 'Error en el inicio de sesión ',
+      message: 'El inicio de sesión fallo ',
       buttons: ['Aceptar']
     });
   
@@ -48,6 +48,19 @@ export class LoginPage implements OnInit {
     }
   }
 
+  registrar(isOpen: boolean){
+    if(this.nombre==="" && this.usuario ==="" && this.password===""){
+      console.log("No pueden estar los campos vacios ")
+      this.MensajeError()
+    }
+    else{
+      console.log("inicio exitoso ")
+      this.isModalOpen = isOpen;
+      this.mensajeExito()
+      this.route.navigate(["/home"])
+    }
+  }
+  
   ngOnInit() {
   }
 
