@@ -15,4 +15,10 @@ export class HomePage {
       console.log("Cuenta");
       this.route.navigate(["/cuenta"]);
     }
+    
+    resena(){
+      console.log("Reseña");
+      this.route.navigate(["/resena"]);
+    }
+    
 }
