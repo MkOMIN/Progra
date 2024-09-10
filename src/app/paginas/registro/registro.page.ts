@@ -46,7 +46,9 @@ export class RegistroPage implements OnInit {
       this.route.navigate(["/home"]);
     }
   }
-  
+  login(){
+    this.route.navigate(["/login"]);
+  }
   ngOnInit() {
   }
 }
