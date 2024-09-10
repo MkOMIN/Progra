@@ -8,12 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage {}  
+export class HomePage {
 
-    constructor(private route:Router) {
+    constructor(private route:Router) {}
     cuenta(){
       console.log("Cuenta");
       this.route.navigate(["/cuenta"]);
     }
-
 }

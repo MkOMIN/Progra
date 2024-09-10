@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'cuenta',
     loadChildren: () => import('./paginas/cuenta/cuenta.module').then( m => m.CuentaPageModule)
   },
+  {
+    path: 'cuenta',
+    loadChildren: () => import('./paginas/cuenta/cuenta.module').then( m => m.CuentaPageModule)
+  },
 
 ];
 
