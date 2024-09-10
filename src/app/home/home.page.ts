@@ -7,10 +7,13 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  constructor(private route:Router) {
 
-    
-  }
+export class HomePage {}  
+
+    constructor(private route:Router) {
+    cuenta(){
+      console.log("Cuenta");
+      this.route.navigate(["/cuenta"]);
+    }
 
 }
