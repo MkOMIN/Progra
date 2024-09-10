@@ -21,4 +21,8 @@ export class HomePage {
       this.route.navigate(["/resena"]);
     }
     
+    crear(){
+      console.log("Crear");
+      this.route.navigate(["/crear"]);
+    }
 }
