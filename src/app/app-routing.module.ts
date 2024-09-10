@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'cuenta',
     loadChildren: () => import('./paginas/cuenta/cuenta.module').then( m => m.CuentaPageModule)
   },
+  {
+    path: 'resena',
+    loadChildren: () => import('./paginas/resena/resena.module').then( m => m.ResenaPageModule)
+  },
 
 ];
 

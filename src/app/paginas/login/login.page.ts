@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   ingresar() {
-    if (this.usuario === "" && this.password === "") { // Cambiado && por ||
+    if (this.usuario === "" || this.password === "") { // Cambiado && por ||
       console.log("No pueden estar los campos vacíos");
       this.MensajeError();
     } else {
