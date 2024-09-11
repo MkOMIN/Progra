@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './crear.page.html',
   styleUrls: ['./crear.page.scss'],
 })
+
+
 export class CrearPage implements OnInit {
 
   constructor(private route:Router) { }
