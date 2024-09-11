@@ -11,8 +11,22 @@ import { Router } from '@angular/router';
 export class HomePage {
 
     constructor(private route:Router) {}
+    home(){
+      console.log("Home");
+      this.route.navigate(["/home"]);
+    }
     cuenta(){
       console.log("Cuenta");
       this.route.navigate(["/cuenta"]);
+    }
+    
+    resena(){
+      console.log("Reseña");
+      this.route.navigate(["/resena"]);
+    }
+    
+    crear(){
+      console.log("Crear");
+      this.route.navigate(["/crear"]);
     }
 }

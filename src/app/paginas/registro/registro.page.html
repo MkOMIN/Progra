@@ -1,31 +1,43 @@
 <ion-app>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Registro</ion-title>
-          <ion-buttons slot="end">
-            <ion-button>Cancelar</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <ion-item>
-          <ion-input type="text" label="Nombre:" name="nombre" [(ngModel)]="nombre"
-            placeholder="Ingrese su Nombre Completo"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="text" label="Email:" name="usuario" [(ngModel)]="usuario"
-            placeholder="Ingrese su Email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input type="password" label="Constraseña:" [(ngModel)]="password" name="password"
-            placeholder="Escribe tu contraseña"></ion-input>
-        </ion-item>
-        <ion-item>
-        <ion-input type="telefono" label="Telefono:" [(ngModel)]="telefono" name="telefono"
-            placeholder="Escribe tu Telefono"></ion-input>
-        </ion-item>
-        
-        <ion-button expand="block" (click)="registrarse()">Registrarse</ion-button>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="login()">Cancelar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
-      </ion-content>
+  <ion-content class="ion-padding">
+    <div class="login-container">
+
+      <div class="logo-container">
+        <img src="https://i.imgur.com/mexKwhb.png" alt="Logo">
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Ingrese su Nombre Completo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" name="usuario" [(ngModel)]="usuario" placeholder="Ingrese su Email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="password" placeholder="Escribe tu contraseña"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input type="tel" name="telefono" [(ngModel)]="telefono" placeholder="Escribe tu Teléfono"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" (click)="registrarse()">
+        Registrarse
+      </ion-button>
+
+    </div>
+  </ion-content>
 </ion-app>

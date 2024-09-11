@@ -1,21 +1,22 @@
 <ion-app>
-
-<ion-img
-  src="assets/img/mapa.jpg"
-  alt="The Wisconsin State Capitol building in Madison, WI at night"
-></ion-img>
-
+<ion-button fill="clear" (click)="resena()">
+  <img src="assets/img/mapa.jpg" alt="Descripción de la imagen" />
+</ion-button>
 
 <!--Barra navegacion(incompleta ion-tabs)-->
 <ion-tabs> 
   <ion-tab-bar slot="home">
-    <ion-tab-button tab="home">
+    <ion-tab-button tab="home" (click)="home()">
       <ion-icon name="home"></ion-icon>
       Mapa
     </ion-tab-button>
-    <ion-tab-button tab="crear">
+    <ion-tab-button tab="crear" (click)="crear()">
       <ion-icon name="add-circle-outline"></ion-icon>
       Crear Reseña
+    </ion-tab-button>
+    <ion-tab-button tab="reseña" (click)="resena()">
+      <ion-icon name="fast-food-outline"></ion-icon>
+      Reseñas
     </ion-tab-button>
     <ion-tab-button tab="person" (click)="cuenta()">
       <ion-icon name="person"></ion-icon>

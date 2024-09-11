@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cuenta',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CuentaPage implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit() {
   }
-
+  home(){
+    console.log("Home");
+    this.route.navigate(["/home"]);
+  }
 }
