@@ -15,7 +15,10 @@ export class LoginPage implements OnInit {
   isModalOpen = false;
 
   constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController) { }
-
+  
+  ngOnInit() {
+  }
+  
   async mensajeExito() {
     const toast = await this.mensaje.create({
       message: 'Inicio de sesión exitoso',
@@ -55,6 +58,8 @@ export class LoginPage implements OnInit {
     this.route.navigate(["/registro"]);
   }
   
-  ngOnInit() {
+  invitado(){
+    console.log("Invitado");
+    this.route.navigate(["/home-inv"]);
   }
 }
