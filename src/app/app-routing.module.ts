@@ -38,6 +38,14 @@ const routes: Routes = [
     path: 'resena',
     loadChildren: () => import('./paginas/resena/resena.module').then( m => m.ResenaPageModule)
   },
+  {
+    path: 'home-inv',
+    loadChildren: () => import('./paginas/home-inv/home-inv.module').then( m => m.HomeInvPageModule)
+  },
+  {
+    path: 'cuenta-inv',
+    loadChildren: () => import('./paginas/cuenta-inv/cuenta-inv.module').then( m => m.CuentaInvPageModule)
+  },
 
 ];
 

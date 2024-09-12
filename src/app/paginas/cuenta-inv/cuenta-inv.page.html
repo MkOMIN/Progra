@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="home()">Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Sección del perfil -->
+  <ion-card class="profile-card">
+    <div class="profile-info">
+      <ion-avatar class="avatar">
+        <img src="" />      <!-- BUSCAR IMAGEN DE ICONO "INVITADO" -->
+      </ion-avatar>
+      <div class="profile-text">
+        <h2>Invitado</h2>
+        <ion-icon name="star-outline" class="rating"></ion-icon>
+        <ion-icon name="star-outline" class="rating"></ion-icon>
+        <ion-icon name="star-outline" class="rating"></ion-icon>
+        <ion-icon name="star-outline" class="rating"></ion-icon>
+        <ion-icon name="star-outline" class="rating"></ion-icon>
+        <p>No registrado</p>
+      </div>
+    </div>
+
+    <!-- Sección de estadísticas -->
+    <div class="stats-section">
+      <div class="stat-item">
+        <h3>0</h3>
+        <p>Puntos</p>
+      </div>
+      <div class="stat-item">
+        <h3>0</h3>
+        <p>Ranking mes</p>
+      </div>
+      <div class="stat-item">
+        <h3>0</h3>
+        <p>Ranking total</p>
+      </div>
+    </div>
+  </ion-card>
+
+  <!-- Sección de comentarios -->
+  <div class="comments-section">
+    <p>Aún no te registras en Gusto´s</p>
+    <div class="empty-comment">
+      <ion-icon name="chatbubble" class="comment-icon"></ion-icon>
+    </div>
+
+    <ion-button expand="block" fill="outline" color="primary">Registrate aquí</ion-button> <!-- REALIZAR CONECCIÓN CON VISTA DE REGISTRO DIRECTAMENTE -->
+  </div>
+
+  
+</ion-content>
+
+
