@@ -16,5 +16,16 @@ export class CuentaInvPage implements OnInit {
     console.log("Home");
     this.route.navigate(["/home"]);
   }
+<<<<<<< HEAD
+  home_inv(){
+    console.log("Home");
+    this.route.navigate(["/home-inv"]);
+  }
+  registro(){
+    console.log("Registro");
+    this.route.navigate(["/registro"]);
+  }
+=======
   
+>>>>>>> ccae36468eeed0405e468541ebf1ce22db39bc93
 }

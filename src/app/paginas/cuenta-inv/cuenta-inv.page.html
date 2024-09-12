@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Perfil</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="home()">Volver</ion-button>
+      <ion-button (click)="home_inv()">Volver</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -44,12 +44,12 @@
 
   <!-- Sección de comentarios -->
   <div class="comments-section">
-    <p>Aún no te registras en Gusto´s</p>
+    <p>Aún no te registras en Gusto's</p>
     <div class="empty-comment">
       <ion-icon name="chatbubble" class="comment-icon"></ion-icon>
     </div>
 
-    <ion-button expand="block" fill="outline" color="primary">Registrate aquí</ion-button> <!-- REALIZAR CONECCIÓN CON VISTA DE REGISTRO DIRECTAMENTE -->
+    <ion-button expand="block" fill="outline" color="primary" (click)="registro()">Registrate aquí</ion-button> <!-- REALIZAR CONECCIÓN CON VISTA DE REGISTRO DIRECTAMENTE -->
   </div>
 
   

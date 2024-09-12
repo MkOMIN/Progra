@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'cuenta-inv',
     loadChildren: () => import('./paginas/cuenta-inv/cuenta-inv.module').then( m => m.CuentaInvPageModule)
   },
+  {
+    path: 'resena-inv',
+    loadChildren: () => import('./resena-inv/resena-inv.module').then( m => m.ResenaInvPageModule)
+  },
 
 ];
 

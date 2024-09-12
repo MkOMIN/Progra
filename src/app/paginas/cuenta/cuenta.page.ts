@@ -16,4 +16,8 @@ export class CuentaPage implements OnInit {
     console.log("Home");
     this.route.navigate(["/home"]);
   }
+  login(){
+    console.log("Login");
+    this.route.navigate(["/login"]);
+  }
 }
