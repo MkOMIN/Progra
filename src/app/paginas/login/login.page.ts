@@ -18,6 +18,17 @@ export class LoginPage implements OnInit {
   
   ngOnInit() {
   }
+
+  // Valida que el email tenga @ y .
+  validarEmail(email: string): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  }
+
+  // Valida que la contraseña tenga al menos 5 caracteres
+  validarPassword(password: string): boolean {
+    return password.length >= 5;
+  }
   
   async mensajeExito() {
     const toast = await this.mensaje.create({
@@ -27,14 +38,13 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
-  async MensajeError() {
+  async MensajeError(mensaje: string) {
     const alert = await this.alerta.create({
       header: 'Error',
       subHeader: 'Error en el inicio de sesión',
-      message: 'El inicio de sesión falló',
+      message: mensaje,
       buttons: ['Aceptar']
     });
-
     await alert.present();
   }
 
@@ -43,10 +53,20 @@ export class LoginPage implements OnInit {
   }
 
   ingresar() {
-    if (this.usuario === "" || this.password === "") { // Cambiado && por ||
+    if (this.usuario === "" || this.password === "") {
+      // Muestra un mensaje si los campos están vacíos
       console.log("No pueden estar los campos vacíos");
-      this.MensajeError();
+      this.MensajeError('Por favor, complete todos los campos.');
+    } else if (!this.validarEmail(this.usuario)) {
+      // Verifica que el email sea válido
+      console.log("Correo electrónico no válido");
+      this.MensajeError('Por favor, ingrese un correo electrónico válido.');
+    } else if (!this.validarPassword(this.password)) {
+      // Verifica que la contraseña tenga al menos 5 caracteres
+      console.log("Contraseña demasiado corta");
+      this.MensajeError('La contraseña debe tener al menos 5 caracteres.');
     } else {
+      // Si todo está bien, inicia sesión
       console.log("Inicio exitoso");
       this.mensajeExito();
       this.route.navigate(["/home"]);

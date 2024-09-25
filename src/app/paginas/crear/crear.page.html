@@ -8,56 +8,36 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-card color="tertiary">
-      <ion-card-header>
-        <ion-card-title>Crea Tu Reseña</ion-card-title>
-        <ion-card-subtitle>Reseñas</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Puntua como fue tu experiencia probando este producto, Tu opinion nos sirve a todos
-      </ion-card-content>
-    </ion-card>
+  <ion-content class="page-enquiry">
+    <div class="form-container">
+      <h2>Crear Reseña</h2>
+        <ion-item>
+          <ion-label>Producto</ion-label>
+          <ion-textarea placeholder="¿Que producto probaste?"></ion-textarea>
+        </ion-item>
+      <ion-item>
+        <ion-label>Ingredientes</ion-label>
+        <ion-textarea placeholder="¿Que ingredentes tenia?"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Valoración en Estrellas </ion-label>
+        <ion-select placeholder="Elige un número" interface="popover">
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Opinión</ion-label>
+        <ion-textarea placeholder="Escribe tu opinión aquí..."></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Imagen del Producto</ion-label>
+        <ion-input type="file" accept="image/*"></ion-input>
+      </ion-item>
+      <ion-button expand="block">Enviar</ion-button>
+    </div>
   </ion-content>
-
-  <ion-content>
-    <ion-card color="tertiary">
-      <ion-card-header>
-        <ion-card-title>COMIDA</ion-card-title>
-        <ion-card-subtitle>#PASO 1</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Puntua como fue tu experiencia con la comida, Platos y refrecos      </ion-card-content>
-    </ion-card>
-  </ion-content>
-
-  <ion-content>
-    <ion-card color="tertiary">
-      <ion-card-header>
-        <ion-card-title>SERVICIO</ion-card-title>
-        <ion-card-subtitle>#PASO 2</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Puntua como fue tu experiencia probando este servicio ¿Te parecio bueno?
-      </ion-card-content>
-    </ion-card>
-  </ion-content>
-
-  <ion-content>
-    <ion-card color="tertiary">
-      <ion-card-header>
-        <ion-card-title>AMBIENTE</ion-card-title>
-        <ion-card-subtitle>#PASO 3</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Como fue tu expericia con el ambiente de este local
-      </ion-card-content>
-    </ion-card>
-  </ion-content>
-
-
   
