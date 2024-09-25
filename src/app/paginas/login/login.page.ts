@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 
+import { Storage } from '@ionic/storage-angular';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -14,7 +16,7 @@ export class LoginPage implements OnInit {
   password: string = "";
   isModalOpen = false;
 
-  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController) { }
+  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage) { }
   
   ngOnInit() {
   }
@@ -69,6 +71,7 @@ export class LoginPage implements OnInit {
       // Si todo está bien, inicia sesión
       console.log("Inicio exitoso");
       this.mensajeExito();
+      localStorage.setItem('email', this.usuario);
       this.route.navigate(["/home"]);
     }
   }
