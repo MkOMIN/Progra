@@ -8,15 +8,19 @@ import { Router } from '@angular/router';
 })
 
 export class CuentaPage implements OnInit {
-  
+
+  nombre: string = '';
   usuario: string = ''; // Inicializamos con una cadena vacía
+  telefono: string = '';
 
   constructor(private route: Router) { }
 
   ngOnInit() {
     // Verificar si el email existe en localStorage
+    this.nombre = localStorage.getItem('nombre') || '';
     const email = localStorage.getItem('email');
-    
+    this.telefono = localStorage.getItem('telefono') || '';
+
     if (email) {
       // Si el email existe, asignarlo a la variable usuario
       this.usuario = email;

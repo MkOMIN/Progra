@@ -10,7 +10,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 export class RegistroPage implements OnInit {
 
   nombre: string = "";
-  usuario: string = "";
+  usuario: string = "";  // Email
   password: string = "";
   telefono: string = "";
 
@@ -35,6 +35,7 @@ export class RegistroPage implements OnInit {
     return password.length >= 5;
   }
 
+  // Mensaje de éxito
   async mensajeExito() {
     const toast = await this.mensaje.create({
       message: 'Registro de Usuario exitoso',
@@ -43,6 +44,7 @@ export class RegistroPage implements OnInit {
     toast.present();
   }
 
+  // Mostrar mensaje de error
   async MensajeError(mensaje: string) {
     const alert = await this.alerta.create({
       header: 'Error',
@@ -53,31 +55,38 @@ export class RegistroPage implements OnInit {
     await alert.present();
   }
 
+  // Proceso de registro
   registrarse() {
     if (this.nombre === "" || this.usuario === "" || this.password === "" || this.telefono === "") {
-      // Muestra mensaje si algún campo está vacío
-      console.log("No pueden estar los campos vacíos");
+      // Verifica que todos los campos estén llenos
       this.MensajeError('Por favor, complete todos los campos.');
     } else if (!this.validarEmail(this.usuario)) {
-      // Verifica que el correo sea válido
-      console.log("Correo electrónico no válido");
+      // Verifica si el email es válido
       this.MensajeError('Por favor, ingrese un correo electrónico válido.');
     } else if (!this.validarTelefono(this.telefono)) {
-      // Verifica que el teléfono tenga 9 dígitos y no contenga letras
-      console.log("Teléfono no válido");
+      // Verifica si el teléfono tiene 9 dígitos
       this.MensajeError('El teléfono debe contener exactamente 9 dígitos numéricos.');
     } else if (!this.validarPassword(this.password)) {
-      // Verifica que la contraseña tenga al menos 5 caracteres
-      console.log("Contraseña demasiado corta");
+      // Verifica si la contraseña tiene al menos 5 caracteres
       this.MensajeError('La contraseña debe tener al menos 5 caracteres.');
     } else {
-      // Si todo está correcto, se registra el usuario
-      console.log("Registro exitoso");
+      // Si todo es válido, registra el usuario
       this.mensajeExito();
+      
+      // Guarda los datos en localStorage
+      localStorage.setItem('nombre', this.nombre);
+      localStorage.setItem('email', this.usuario);
+      localStorage.setItem('telefono', this.telefono);
+      
+      // Evita guardar la contraseña en texto plano en localStorage para mayor seguridad
+      // localStorage.setItem('password', this.password);  // No recomendado
+
+      // Redirige a la página principal
       this.route.navigate(["/home"]);
     }
   }
 
+  // Redirige al login si se cancela
   login() {
     this.route.navigate(["/login"]);
   }
