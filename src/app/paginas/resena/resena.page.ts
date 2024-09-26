@@ -22,6 +22,14 @@ export class ResenaPage implements OnInit {
     this.opinion = localStorage.getItem("opinion") || "";
     this.nombre = localStorage.getItem("nombre") || "";
     const email = localStorage.getItem('email');
+    if (email) {
+      // Si el email existe, asignarlo a la variable usuario
+      this.usuario = email;
+    } else {
+      // Si no hay email, puedes redirigir al login o manejar el error
+      console.log('No se encontró el email, redirigiendo a la página de login.');
+      this.route.navigate(['/login']);
+    }
   }
 
   home(){

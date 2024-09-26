@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Reseña</ion-title>
-  <ion-buttons slot="end">
-  <ion-button (click)="home()">Volver</ion-button>
-</ion-buttons>
-</ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="home()">Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -16,17 +16,20 @@
     <ion-card-content>{{ingredientes}}</ion-card-content>
   </ion-card>
 
+  <!-- Información del usuario y la reseña en la misma línea -->
   <ion-card-content id="Resena">
-    <ion-card-content>Usuario: {{nombre}} {{Usuario}}
-    </ion-card-content>
-    <ion-card-content id="Resena">Valoracion:
-    <ion-icon name="star"></ion-icon>
-    <ion-icon name="star"></ion-icon>
+    <p>
+      <span>Usuario: {{nombre}}</span> - <span>{{usuario}}</span>
+    </p>
+    <p>Valoración: 
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>   
+      <!-- Aquí podrías añadir más estrellas dependiendo de la valoración -->
+    </p>
   </ion-card-content>
 
-    <ion-card-content id="Resena">
-    <ion-textarea>{{opinion}}</ion-textarea>
-    </ion-card-content>
+  <!-- Opinión del usuario -->
+  <ion-card-content id="Resena">
+    {{opinion}}
   </ion-card-content>
-
 </ion-content>
