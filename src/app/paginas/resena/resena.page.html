@@ -11,18 +11,16 @@
   <ion-card>
     <img src="assets/img/gorilas.jpg" alt="Hamburguesa">
     <ion-card-header>
-      <ion-card-title>Godzilla</ion-card-title>
+      <ion-card-title>{{producto}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      Carne Mechada, mayonesa, palta, mostaza, cebolla, queso, tocino
-    </ion-card-content>
+    <ion-card-content>{{ingredientes}}</ion-card-content>
   </ion-card>
 
   <ion-card-content id="Resena">
-    <ion-card-content>
-      Mauricio Valdivia  <ion-icon name="star"></ion-icon>
+    <ion-card-content>Usuario: {{nombre}}
+    <ion-icon name="star"></ion-icon>
 
-      <ion-textarea placeholder="¡Esta hamburguesa es una verdadera basura! No hay otra forma de decirlo. NO LO RECOMIENDO"></ion-textarea>
+      <ion-textarea>{{opinion}}</ion-textarea>
     </ion-card-content>
   </ion-card-content>
 
