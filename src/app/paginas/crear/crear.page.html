@@ -13,11 +13,11 @@
       <h2>Crear Reseña</h2>
         <ion-item>
           <ion-label>Producto</ion-label>
-          <ion-textarea placeholder="¿Que producto probaste?"></ion-textarea>
+          <ion-input type="text" name="producto" [(ngModel)]="producto" placeholder="¿Qué producto probaste?"></ion-input>
         </ion-item>
       <ion-item>
         <ion-label>Ingredientes</ion-label>
-        <ion-textarea placeholder="¿Que ingredentes tenia?"></ion-textarea>
+        <ion-input type="text" name="ingredientes" [(ngModel)]="ingredientes" placeholder="¿Que ingredentes tenia?"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Valoración en Estrellas </ion-label>
@@ -37,7 +37,7 @@
         <ion-label>Imagen del Producto</ion-label>
         <ion-input type="file" accept="image/*"></ion-input>
       </ion-item>
-      <ion-button expand="block">Enviar</ion-button>
+      <ion-button expand="block" (click)="enviar()">Enviar</ion-button>
     </div>
   </ion-content>
   
