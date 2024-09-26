@@ -12,6 +12,7 @@ export class ResenaPage implements OnInit {
   ingredientes: string = "";
   opinion: string = "";
   nombre: string = "";
+  usuario: string = "";
   
   constructor(private route:Router) { }
 
@@ -20,6 +21,7 @@ export class ResenaPage implements OnInit {
     this.ingredientes = localStorage.getItem("ingredientes") || "";
     this.opinion = localStorage.getItem("opinion") || "";
     this.nombre = localStorage.getItem("nombre") || "";
+    const email = localStorage.getItem('email');
   }
 
   home(){

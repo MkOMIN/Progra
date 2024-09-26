@@ -11,33 +11,50 @@
   <ion-content class="page-enquiry">
     <div class="form-container">
       <h2>Crear Reseña</h2>
+      <form #reviewForm="ngForm" (ngSubmit)="enviar()">
+        <!-- Producto input con validación -->
         <ion-item>
           <ion-label>Producto</ion-label>
-          <ion-input type="text" name="producto" [(ngModel)]="producto" placeholder="¿Qué producto probaste?"></ion-input>
+          <ion-input type="text" name="producto" [(ngModel)]="producto" required minlength="3" placeholder="¿Qué producto probaste?" #productoInput="ngModel"></ion-input>
         </ion-item>
-      <ion-item>
-        <ion-label>Ingredientes</ion-label>
-        <ion-input type="text" name="ingredientes" [(ngModel)]="ingredientes" placeholder="¿Que ingredentes tenia?"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Valoración en Estrellas </ion-label>
-        <ion-select placeholder="Elige un número" interface="popover">
-          <ion-select-option value="1">1</ion-select-option>
-          <ion-select-option value="2">2</ion-select-option>
-          <ion-select-option value="3">3</ion-select-option>
-          <ion-select-option value="4">4</ion-select-option>
-          <ion-select-option value="5">5</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Opinión</ion-label>
-        <ion-input type="text" name="opninion" [(ngModel)]="opinion" placeholder="Escribe tu opinión aquí..."></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Imagen del Producto</ion-label>
-        <ion-input type="file" accept="image/*"></ion-input>
-      </ion-item>
-      <ion-button expand="block" (click)="enviar()">Enviar</ion-button>
+        <!-- Mostrar error si el campo es inválido -->
+        <ion-text color="danger" *ngIf="productoInput.invalid && productoInput.touched">
+          El producto es obligatorio y debe tener al menos 3 caracteres.
+        </ion-text>
+
+        <!-- Ingredientes input con validación -->
+        <ion-item>
+          <ion-label>Ingredientes</ion-label>
+          <ion-input type="text" name="ingredientes" [(ngModel)]="ingredientes" required minlength="5" placeholder="¿Qué ingredientes tenía?" #ingredientesInput="ngModel"></ion-input>
+        </ion-item>
+        <!-- Mostrar error si el campo es inválido -->
+        <ion-text color="danger" *ngIf="ingredientesInput.invalid && ingredientesInput.touched">
+          Los ingredientes son obligatorios y deben tener al menos 5 caracteres.
+        </ion-text>
+
+        <!-- Otros campos del formulario -->
+        <ion-item>
+          <ion-label>Valoración en Estrellas</ion-label>
+          <ion-select placeholder="Elige un número" interface="popover">
+            <ion-select-option value="1">1</ion-select-option>
+            <ion-select-option value="2">2</ion-select-option>
+            <ion-select-option value="3">3</ion-select-option>
+            <ion-select-option value="4">4</ion-select-option>
+            <ion-select-option value="5">5</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Opinión</ion-label>
+          <ion-input type="text" name="opinion" [(ngModel)]="opinion" placeholder="Escribe tu opinión aquí..."></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Imagen del Producto</ion-label>
+          <ion-input type="file" accept="image/*"></ion-input>
+        </ion-item>
+
+        <!-- Botón de envío deshabilitado si el formulario es inválido -->
+        <ion-button expand="block" type="submit" [disabled]="reviewForm.invalid">Enviar</ion-button>
+      </form>
     </div>
   </ion-content>
-  
+</ion-app>
