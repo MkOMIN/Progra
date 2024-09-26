@@ -13,7 +13,7 @@ export class CrearPage implements OnInit {
 
   producto: string = "";
   ingredientes: string = "";
-
+  opinion: string = "";
 
   constructor(private route:Router) { }
 
@@ -23,6 +23,8 @@ export class CrearPage implements OnInit {
   enviar(){
     console.log("Reseña Enviada");
     localStorage.setItem("producto", this.producto);
+    localStorage.setItem("ingredientes", this.ingredientes);
+    localStorage.setItem("opinion", this.opinion);
     this.route.navigate(["/home"]);
   }
 
