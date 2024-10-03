@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-registro',
@@ -14,9 +15,12 @@ export class RegistroPage implements OnInit {
   password: string = "";
   telefono: string = "";
 
-  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController) { }
+  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage) { }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    const storage = await this.storage.create();
+  }
+
 
   // Valida que el email tenga @ y .
   validarEmail(email: string): boolean {
@@ -74,14 +78,10 @@ export class RegistroPage implements OnInit {
       this.mensajeExito();
       
       // Guarda los datos en localStorage
-      localStorage.setItem('nombre', this.nombre);
-      localStorage.setItem('email', this.usuario);
-      localStorage.setItem('telefono', this.telefono);
+      this.storage.set('nombre', this.nombre);
+      this.storage.set('email', this.usuario);
+      this.storage.set('telefono', this.telefono);
       
-      // Evita guardar la contraseña en texto plano en localStorage para mayor seguridad
-      // localStorage.setItem('password', this.password);  // No recomendado
-
-      // Redirige a la página principal
       this.route.navigate(["/home"]);
     }
   }

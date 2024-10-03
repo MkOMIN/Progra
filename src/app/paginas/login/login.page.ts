@@ -18,7 +18,8 @@ export class LoginPage implements OnInit {
 
   constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage) { }
   
-  ngOnInit() {
+  async ngOnInit() {
+    const storage = await this.storage.create();
   }
 
   // Valida que el email tenga @ y .
@@ -71,7 +72,8 @@ export class LoginPage implements OnInit {
       // Si todo está bien, inicia sesión
       console.log("Inicio exitoso");
       this.mensajeExito();
-      localStorage.setItem('email', this.usuario);
+      this.storage.set('email', this.usuario);
+      this.storage.set('password', this.password);
       this.route.navigate(["/home"]);
     }
   }

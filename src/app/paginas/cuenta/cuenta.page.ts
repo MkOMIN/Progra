@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-cuenta',
@@ -10,25 +11,16 @@ import { Router } from '@angular/router';
 export class CuentaPage implements OnInit {
 
   nombre: string = '';
-  usuario: string = ''; // Inicializamos con una cadena vacía
+  usuario: string = '';
   telefono: string = '';
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private storage:Storage) { }
 
-  ngOnInit() {
-    // Verificar si el email existe en localStorage
-    this.nombre = localStorage.getItem('nombre') || '';
-    const email = localStorage.getItem('email');
-    this.telefono = localStorage.getItem('telefono') || '';
-
-    if (email) {
-      // Si el email existe, asignarlo a la variable usuario
-      this.usuario = email;
-    } else {
-      // Si no hay email, puedes redirigir al login o manejar el error
-      console.log('No se encontró el email, redirigiendo a la página de login.');
-      this.route.navigate(['/login']);
-    }
+  async ngOnInit() {
+    const storage = await this.storage.create();
+    this.usuario = await storage.get('email');
+    this.nombre = await storage.get('nombre');
+    this.telefono = await storage.get('telefono');
   }
 
   home() {
