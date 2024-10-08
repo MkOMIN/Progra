@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "506958708284",
+    "project_id": "gusto-s-717a8",
+    "storage_bucket": "gusto-s-717a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506958708284:android:3ab5708d302775d5944d39",
+        "android_client_info": {
+          "package_name": "Gustos_2024.Duoc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTn4EzJ1m38i12BLx_oAzjwROEdAsL4Q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
