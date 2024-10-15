@@ -5,6 +5,11 @@ import { AlertController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service';
 
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import {defineCustomElements} from '@ionic/pwa-elements/loader';
+defineCustomElements(window);
+import { Geolocation } from '@capacitor/geolocation';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,7 +21,23 @@ export class LoginPage implements OnInit {
   password: string = "";
   isModalOpen = false;
 
-  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage, private loginFireBase:FirebaseLoginService) { }
+  async tomarFoto() {
+    const image = await Camera.getPhoto({
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Camera,
+      quality: 100
+  });
+  console.log(image.webPath);
+  }
+  
+  async obtenerUbicacion() {
+    const coordenadas = await Geolocation.getCurrentPosition();
+    console.log('Latitud:',coordenadas.coords.latitude, 'Longitud:', coordenadas.coords.longitude);
+  }
+
+  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage, private loginFireBase:FirebaseLoginService) {
+    this.obtenerUbicacion();
+  }
   
   async ngOnInit() {
     const storage = await this.storage.create();
