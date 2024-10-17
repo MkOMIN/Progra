@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { FirebaseLoginService } from 'src/app/servicios/firebase-login.service';
 
 @Component({
   selector: 'app-registro',
@@ -15,12 +16,15 @@ export class RegistroPage implements OnInit {
   password: string = "";
   telefono: string = "";
 
-  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage) { }
+  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage, private access:FirebaseLoginService) { }
 
   async ngOnInit() {
     const storage = await this.storage.create();
   }
 
+  async crear_usuario(){
+    await this.access.create_user(this.nombre, this.usuario, this.password, this.telefono);
+  }
 
   // Valida que el email tenga @ y .
   validarEmail(email: string): boolean {
