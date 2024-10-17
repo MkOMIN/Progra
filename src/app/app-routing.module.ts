@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: '',
@@ -18,9 +20,11 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'crear',
-    loadChildren: () => import('./paginas/crear/crear.module').then( m => m.CrearPageModule)
+    loadChildren: () => import('./paginas/crear/crear.module').then( m => m.CrearPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'registro',
@@ -28,15 +32,18 @@ const routes: Routes = [
   },
   {
     path: 'cuenta',
-    loadChildren: () => import('./paginas/cuenta/cuenta.module').then( m => m.CuentaPageModule)
+    loadChildren: () => import('./paginas/cuenta/cuenta.module').then( m => m.CuentaPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'cuenta',
-    loadChildren: () => import('./paginas/cuenta/cuenta.module').then( m => m.CuentaPageModule)
+    loadChildren: () => import('./paginas/cuenta/cuenta.module').then( m => m.CuentaPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'resena',
-    loadChildren: () => import('./paginas/resena/resena.module').then( m => m.ResenaPageModule)
+    loadChildren: () => import('./paginas/resena/resena.module').then( m => m.ResenaPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'home-inv',
