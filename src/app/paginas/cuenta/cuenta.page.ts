@@ -29,6 +29,7 @@ export class CuentaPage implements OnInit {
   }
 
   login() {
+    this.storage.clear();
     console.log("Login");
     this.route.navigate(["/login"]);
   }

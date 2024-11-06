@@ -31,7 +31,7 @@
 
       <ion-item>
         <ion-label position="floating">Teléfono</ion-label>
-        <ion-input type="tel" name="telefono" [(ngModel)]="telefono" placeholder="Escribe tu Teléfono"></ion-input>
+        <ion-input type="tel" name="telefono" [(ngModel)]="telefono" placeholder="Escribe tu Teléfono" maxlength="9"></ion-input>
       </ion-item>
 
       <ion-button expand="block" color="primary" (click)="crear_usuario()">

@@ -81,24 +81,6 @@ export class RegistroPage implements OnInit {
       this.route.navigate(["/home"]);
     }
   }
-  registrarse() {
-    if (this.nombre === "" || this.usuario === "" || this.password === "" || this.telefono === "") {
-      this.MensajeError('Por favor, complete todos los campos.');
-    } else if (!this.validarEmail(this.usuario)) {
-      this.MensajeError('Por favor, ingrese un correo electrónico válido.');
-    } else if (!this.validarTelefono(this.telefono)) {
-      this.MensajeError('El teléfono debe contener exactamente 9 dígitos numéricos.');
-    } else if (!this.validarPassword(this.password)) {
-      this.MensajeError('La contraseña debe tener al menos 5 caracteres.');
-    } else {
-      this.mensajeExito();
-      this.storage.set('nombre', this.nombre);
-      this.storage.set('email', this.usuario);
-      this.storage.set('telefono', this.telefono);
-      this.storage.set('SessionID', true);
-      this.route.navigate(["/home"]);
-    }
-  }
 
   // Redirige al login si se cancela
   login() {
