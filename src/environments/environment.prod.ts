@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  MAPBOX_KEY: 'pk.eyJ1IjoibWtvbWluLTkzIiwiYSI6ImNtMmtsZ3JhdjAya3UybW42aWU1Mm1zdzcifQ.9_DDTzXFPrT1N_TBCmnPZA',
   firebaseConfig:{
   apiKey:'AIzaSyAo8e0NS3AautkIogeRKIsDDQMrpIWuYpc',
   authDomain:'gusto-2.appspot.com',
