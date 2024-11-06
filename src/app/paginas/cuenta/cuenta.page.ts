@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-cuenta',
@@ -14,7 +16,7 @@ export class CuentaPage implements OnInit {
   usuario: string = '';
   telefono: string = '';
 
-  constructor(private route: Router, private storage:Storage) { }
+  constructor(private route: Router, private storage:Storage, private afAuth:AngularFireAuth, private firestore:AngularFirestore) { }
 
   async ngOnInit() {
     const storage = await this.storage.create();
@@ -33,4 +35,12 @@ export class CuentaPage implements OnInit {
     console.log("Login");
     this.route.navigate(["/login"]);
   }
+  
+  logout(){
+    this.storage.clear();
+    return this.afAuth.signOut().then(()=>{
+      this.route.navigate(['/login']);
+    });
+  }
+
 }
