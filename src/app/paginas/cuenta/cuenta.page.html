@@ -1,56 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Perfil</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="home()">Volver</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <!-- Sección del perfil -->
-  <ion-card class="profile-card">
-    <div class="profile-info">
-      <ion-avatar class="avatar">
-        <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2022/05/shrek-2695169.jpg?tf=3840x" />
-      </ion-avatar>
-      <div class="profile-text">
-        <h2>{{nombre}}</h2>
-        <h2>{{usuario}}</h2>
-        <h2>{{telefono}}</h2>
-        <p>Comensal</p>
+  <div class="container-cuenta">
+    <!-- Sección del perfil -->
+    <ion-card class="profile-card">
+      <div class="profile-info">
+        <ion-avatar class="avatar">
+          <img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2022/05/shrek-2695169.jpg?tf=3840x" />
+        </ion-avatar>
+        <div class="profile-text">
+          <h2>{{nombre}}</h2>
+          <h2>{{usuario}}</h2>
+          <h2>{{telefono}}</h2>
+          <p>Comensal</p>
+        </div>
       </div>
+
+    </ion-card>
+
+    <div class="comments-section">
+      <ion-button expand="block" (click)="logout()">Cerrar Sesión</ion-button>
+      <ion-button color="terciary" (click)="home()">Volver</ion-button>
     </div>
-
-    <!-- Sección de estadísticas -->
-    <div class="stats-section">
-      <div class="stat-item">
-        <h3>999+</h3>
-        <p>Puntos</p>
-      </div>
-      <div class="stat-item">
-        <h3>999+</h3>
-        <p>Ranking mes</p>
-      </div>
-      <div class="stat-item">
-        <h3>999+</h3>
-        <p>Ranking total</p>
-      </div>
-    </div>
-  </ion-card>
-
-  <!-- Sección de comentarios -->
-  <div class="comments-section">
-    <p>Aún no tienes comentarios en Gusto´s</p>
-    <div class="empty-comment">
-      <ion-icon name="chatbubble" class="comment-icon"></ion-icon>
-    </div>
-
-    <ion-button expand="block" fill="outline" color="primary" (click)="logout()">Cerrar Sesión</ion-button>
-
   </div>
-
-  
 </ion-content>
 
 
