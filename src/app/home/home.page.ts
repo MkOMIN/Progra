@@ -16,7 +16,6 @@ export class HomePage {
   public map!: mapboxgl.Map;
   public style = 'mapbox://styles/mapbox/streets-v11';
   
-  
   async obtenerUbicacion() {
     const coordenadas = await Geolocation.getCurrentPosition();
     console.log('Latitud:',coordenadas.coords.latitude, 'Longitud:', coordenadas.coords.longitude);

@@ -25,6 +25,16 @@ export class CuentaPage implements OnInit {
     this.telefono = await storage.get('telefono');
   }
 
+  async update(){
+    const storage = await this.storage.create();
+    await storage.set('nombre', this.nombre);
+    await storage.set('telefono', this.telefono);
+    this.firestore.doc('users/${this.afAuth.currentUser?.uid}').update({
+      nombre: this.nombre,
+      telefono: this.telefono
+    });
+  }
+
   home() {
     console.log("Home");
     this.route.navigate(["/home"]);

@@ -92,7 +92,6 @@ export class LoginPage implements OnInit {
         console.log("Inicio exitoso");
         this.mensajeExito();
         this.storage.set('email', this.usuario);
-        this.storage.set('password', this.password);
         this.storage.set('SessionID', true);
         this.route.navigate(["/home"]);
       });
