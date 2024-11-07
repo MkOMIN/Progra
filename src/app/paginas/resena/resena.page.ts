@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ImageService } from 'src/app/servicios/image.service';
+
 
 @Component({
   selector: 'app-resena',
@@ -13,8 +15,10 @@ export class ResenaPage implements OnInit {
   opinion: string = "";
   nombre: string = "";
   usuario: string = "";
-  
-  constructor(private route:Router) { }
+  foto: string = "";
+  imageUrl: string | null = null;
+
+  constructor(private route:Router, private imageService: ImageService) { }
 
   ngOnInit() {
     this.producto = localStorage.getItem("producto") || "";
@@ -22,6 +26,7 @@ export class ResenaPage implements OnInit {
     this.opinion = localStorage.getItem("opinion") || "";
     this.nombre = localStorage.getItem("nombre") || "";
     const email = localStorage.getItem('email');
+    this.imageUrl = this.imageService.getImage(); // Obtiene la imagen desde el servicio
   }
 
   home(){

@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-card>
-    <img src="assets/img/gorilas.jpg" alt="Hamburguesa">
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen seleccionada" />
     <ion-card-header>
       <ion-card-title>{{producto}}</ion-card-title>
     </ion-card-header>

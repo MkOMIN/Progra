@@ -21,27 +21,27 @@ export class HomePage {
     const coordenadas = await Geolocation.getCurrentPosition();
     console.log('Latitud:',coordenadas.coords.latitude, 'Longitud:', coordenadas.coords.longitude);
   }
-  
   constructor(private route:Router) {
-    mapboxgl.accessToken = environment.MAPBOX_KEY
+    mapboxgl.accessToken = environment.MAPBOX_KEY,
     this.obtenerUbicacion()
     }
 
   ngoOnInit() {
-    this.buildMap();
+
   }
   ionViewWillEnter() {
     if (!this.map) {
       this.buildMap();
     }
   }
-    buildMap() {
+    async buildMap() {
+      const coordenadas = Geolocation.getCurrentPosition();
       mapboxgl.accessToken = 'pk.eyJ1IjoibWtvbWluLTkzIiwiYSI6ImNtMmtra2twNzAyYTUyam40MHJ4ZWxndXMifQ.XUUZ8mOqe4ylOSoFvKZDHQ';
       this.map = new mapboxgl.Map({
         container: 'mapa-box',
         style: this.style,
         zoom: 14,
-        center: [-71.2431549, -32.8883092],
+        center: [(await coordenadas).coords.longitude, (await coordenadas).coords.latitude],
         dragPan: true,  // Permitir arrastrar el mapa
         scrollZoom: true,  // Permitir hacer zoom con la rueda del ratón
         boxZoom: true,  // Permitir hacer zoom con la caja
