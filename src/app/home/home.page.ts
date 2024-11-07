@@ -37,18 +37,59 @@ export class HomePage {
     async buildMap() {
       const coordenadas = Geolocation.getCurrentPosition();
       mapboxgl.accessToken = 'pk.eyJ1IjoibWtvbWluLTkzIiwiYSI6ImNtMmtra2twNzAyYTUyam40MHJ4ZWxndXMifQ.XUUZ8mOqe4ylOSoFvKZDHQ';
+      
       this.map = new mapboxgl.Map({
         container: 'mapa-box',
-        style: this.style,
-        zoom: 14,
+        // Usando un estilo que muestra mejor los edificios 3D
+        style: 'mapbox://styles/mapbox/streets-v12',
+        zoom: 16, // Zoom más cercano para mejor vista 3D
         center: [(await coordenadas).coords.longitude, (await coordenadas).coords.latitude],
-        dragPan: true,  // Permitir arrastrar el mapa
-        scrollZoom: true,  // Permitir hacer zoom con la rueda del ratón
-        boxZoom: true,  // Permitir hacer zoom con la caja
-        doubleClickZoom: true,  // Permitir hacer zoom con doble clic
-        touchZoomRotate: true,  // Permitir el zoom y rotación táctil
-        dragRotate: true  // Permitir rotar el mapa con el mouse
+        pitch: 60, // Inclinación de la cámara (0-85 grados)
+        bearing: 45, // Rotación del mapa
+        antialias: true, // Mejora la calidad visual
+        dragPan: true,
+        scrollZoom: true,
+        boxZoom: true,
+        doubleClickZoom: true,
+        touchZoomRotate: true,
+        dragRotate: true
       });
+
+      // Esperar a que el mapa cargue
+      this.map.on('load', () => {
+        // Añadir capa 3D de edificios
+        this.map.addLayer({
+          'id': '3d-buildings',
+          'source': 'composite',
+          'source-layer': 'building',
+          'filter': ['==', 'extrude', 'true'],
+          'type': 'fill-extrusion',
+          'minzoom': 15,
+          'paint': {
+            'fill-extrusion-color': '#aaa',
+            'fill-extrusion-height': [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              15,
+              0,
+              15.05,
+              ['get', 'height']
+            ],
+            'fill-extrusion-base': [
+              'interpolate',
+              ['linear'],
+              ['zoom'],
+              15,
+              0,
+              15.05,
+              ['get', 'min_height']
+            ],
+            'fill-extrusion-opacity': 0.6
+          }
+        });
+      });
+
       this.map.resize();
     }
 
@@ -73,5 +114,3 @@ export class HomePage {
       this.route.navigate(["/crear"]);
     }
 }
-
-
