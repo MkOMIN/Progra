@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import { Geolocation } from '@capacitor/geolocation';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -15,32 +16,43 @@ export class HomePage {
   public map!: mapboxgl.Map;
   public style = 'mapbox://styles/mapbox/streets-v11';
   
+  
   async obtenerUbicacion() {
     const coordenadas = await Geolocation.getCurrentPosition();
     console.log('Latitud:',coordenadas.coords.latitude, 'Longitud:', coordenadas.coords.longitude);
   }
+  constructor(private route:Router) {
+    mapboxgl.accessToken = environment.MAPBOX_KEY,
+    this.obtenerUbicacion()
+    }
 
-    constructor(private route:Router) {
-      this.obtenerUbicacion()
+  ngoOnInit() {
+
+  }
+  ionViewWillEnter() {
+    if (!this.map) {
+      this.buildMap();
     }
-    ionViewWillEnter() {
-      if (!this.map) {
-        this.buildMap();
-      }
-    }
-    
-    buildMap() {
-      mapboxgl.accessToken = 'pk.eyJ1IjoibWtvbWluLTkzIiwiYSI6ImNtMmtsZ3JhdjAya3UybW42aWU1Mm1zdzcifQ.9_DDTzXFPrT1N_TBCmnPZA';
-      
+  }
+    async buildMap() {
+      const coordenadas = Geolocation.getCurrentPosition();
+      mapboxgl.accessToken = 'pk.eyJ1IjoibWtvbWluLTkzIiwiYSI6ImNtMmtra2twNzAyYTUyam40MHJ4ZWxndXMifQ.XUUZ8mOqe4ylOSoFvKZDHQ';
       this.map = new mapboxgl.Map({
         container: 'mapa-box',
         style: this.style,
         zoom: 14,
-        center: [-71.461371, -33.0445992]
+        center: [(await coordenadas).coords.longitude, (await coordenadas).coords.latitude],
+        dragPan: true,  // Permitir arrastrar el mapa
+        scrollZoom: true,  // Permitir hacer zoom con la rueda del ratón
+        boxZoom: true,  // Permitir hacer zoom con la caja
+        doubleClickZoom: true,  // Permitir hacer zoom con doble clic
+        touchZoomRotate: true,  // Permitir el zoom y rotación táctil
+        dragRotate: true  // Permitir rotar el mapa con el mouse
       });
-  
       this.map.resize();
     }
+
+    
 
     home(){
       console.log("Home");
