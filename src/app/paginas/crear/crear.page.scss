@@ -8,8 +8,8 @@
 
   .form-container {
     width: 100%;
-    max-width: 400px;
-    background-color: #000000; // Fondo del formulario
+    max-width: 700px;
+    background-color: #0c181d; // Fondo del formulario
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -19,11 +19,12 @@
       color: #ffffff; // Color del título
       margin-bottom: 20px;
       font-size: 1.5rem; // Asegura que el título sea legible en móviles
+      
     }
 
     ion-item {
       margin-bottom: 20px;
-      background: #8f8f8f; // Fondo para los elementos ion-item
+      background: #000000; // Fondo para los elementos ion-item
       border-radius: 10px;
       padding: 10px;
       width: 100%; // Asegura que los ion-item ocupen todo el ancho disponible
@@ -41,21 +42,21 @@
       ion-input {
         background-color: #ffffff;
         border-radius: 10px;
-        color: #000000;
+        color: #141212;
         width: calc(100% - 110px); // Asegura que los campos se adapten al ancho disponible sin sobrepasar los labels
       }
     }
 
     ion-button {
       width: 100%;
-      background-color: #979797; // Botón gris
+       // Botón gris
       color: white;
       font-size: 16px;
       border-radius: 10px;
       padding: 10px;
-      &:hover {
-        background-color: #9900ff;
-      }
+    
+      background-color: #211e39;
+      
     }
   }
 }
