@@ -16,6 +16,7 @@ export class ResenaPage implements OnInit {
   nombre: string = "";
   usuario: string = "";
   foto: string = "";
+  
   imageUrl: string | null = null;
 
   constructor(private route:Router, private imageService: ImageService) { }

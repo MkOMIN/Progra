@@ -14,10 +14,9 @@
       <form #reviewForm="ngForm" (ngSubmit)="enviar()">
         <!-- Producto input con validación -->
         
-        <ion-item>
-          <ion-label>Imagen del Producto</ion-label>
-          <ion-input type="file" (click)="enviar()"></ion-input>
-        </ion-item>
+        <ion-button (click)=" tomarFoto()" expand="block" fill="clear" shape="round">
+          Camara 
+        </ion-button>
         
         <ion-item>
           <ion-label>Producto</ion-label>

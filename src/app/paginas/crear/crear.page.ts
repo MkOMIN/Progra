@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/servicios/image.service';
 import { Router } from '@angular/router';
 import {Camera ,CameraResultType, CameraSource} from '@capacitor/camera';
+import {defineCustomElements} from '@ionic/pwa-elements/loader';
+
 
 @Component({
   selector: 'app-crear',
@@ -27,6 +29,15 @@ export class CrearPage implements OnInit {
     const blob = await response.blob();
     this.selectedPhoto = new File([blob], 'photo.jpg', { type: blob.type });
     console.log('Foto capturada:', this.selectedPhoto);
+  }
+
+  async tomarFoto(){
+    const image = await Camera.getPhoto({
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Camera,
+      quality: 100
+    });
+    console.log(image.webPath)
   }
 
   constructor(private route: Router, private imageService: ImageService) { }

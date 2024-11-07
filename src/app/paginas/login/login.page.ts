@@ -34,8 +34,9 @@ export class LoginPage implements OnInit {
     const coordenadas = await Geolocation.getCurrentPosition();
     console.log('Latitud:',coordenadas.coords.latitude, 'Longitud:', coordenadas.coords.longitude);
   }
+  
 
-  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage, private loginFireBase:FirebaseLoginService) {
+  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage, private loginFireBase:FirebaseLoginService,) {
     this.obtenerUbicacion();
   }
   
@@ -107,4 +108,5 @@ export class LoginPage implements OnInit {
     console.log("Invitado");
     this.route.navigate(["/home-inv"]);
   }
+  
 }
