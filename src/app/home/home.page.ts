@@ -73,3 +73,5 @@ export class HomePage {
       this.route.navigate(["/crear"]);
     }
 }
+
+
