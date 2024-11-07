@@ -1,10 +1,19 @@
+ion-content {
+    --background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    padding: 16px; 
+}
+
 .login-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
+    max-width: 380px;
+    width: 100%;
+    padding: 24px;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
 
     .logo-container {
@@ -21,12 +30,45 @@
     }
 
     ion-item {
-        margin-bottom: 15px;
+        --background:#f9f9f9; // Fondo claro para los campos de entrada
+        --border-radius: 8px;
+        --padding-start: 12px;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        ion-label {
+            color: #333;
+        }
+
+        ion-input {
+            color: #333;
+            font-size: 15px;
+        }
     }
 
     ion-button {
+        width: 100%;
+        height: 48px;
+        --border-radius: 8px;
         --background: #007bff;
-        --border-radius: 5px;
-        margin-bottom: 20px;
+        --background-activated: #0056b3;
+        font-size: 16px;
+        margin-top: 16px;
     }
+}
+
+// Ajuste para centrar y alinear correctamente el formulario
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel-button {
+    --background: #ac0808;
+    --border-radius: 8px;
+    color: #333; 
+    font-weight: normal;
+    padding: 0 16px;
+    height: 40px; 
 }
