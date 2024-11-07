@@ -1,97 +1,109 @@
+ion-content {
+  --background: #ffffff;
+}
 
 .login-container {
-    max-width: absolute;
-    margin: absolute;
-    padding: 20px;
-    background-color: white;
-    border-radius: absolute;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  
-    .logo-container {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
     
-        img {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-      }
-      
-    h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-  
-    ion-item {
-      margin-bottom: 15px;
-    }
-  
-    .forgot-password {
-      display: block;
-      margin-bottom: 20px;
-  
-      a {
-        color: #3b9aef;
-        font-size: 14px;
-        text-decoration: none;
-      }
-    }
-  
-    .login-button {
-      --background: #007bff;
-      --border-radius: 5px;
-      margin-bottom: 20px;
-    }
-  
-    .signup-text {
-      p {
-        font-size: 14px;
-        color: #333;
-  
-        a {
-          color: #007bff;
-          text-decoration: none;
-        }
-      }
-    }
-  
-    .separator {
-      margin: 20px 0;
-      ion-text {
-        font-size: 14px;
-        color: #999;
-      }
-    }
-  
-    .facebook-button {
-      --background: #3b5998;
-      --border-radius: 5px;
-      --color: #fff;
-      margin-bottom: 10px;
-  
-      ion-icon {
-        margin-right: 10px;
-      }
-    }
-  
-    .google-button {
-      --background: #fff;
-      --border-radius: 5px;
-      --color: #333;
-      --border-color: #ccc;
-  
-      ion-icon {
-        margin-right: 10px;
-      }
-    }
-  
-    .password-icon {
-      color: #666;
-      font-size: 20px;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
     }
   }
-  
+
+  .custom-input {
+    --background: #f5f5f5; /* background of ion-item */
+    --border-color: transparent;
+    --highlight-height: 0;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.custom-input:last-of-type {
+    margin-bottom: 24px;
+}
+
+.custom-input ion-label {
+    color: #666;
+    font-size: 16px;
+}
+
+.custom-input ion-input {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    --placeholder-color: #999;
+    font-size: 16px;
+    color: #333; /* Ensure text color is visible */
+}
+  .forgot-password {
+    display: block;
+    margin-bottom: 24px;
+    
+    a {
+      color: #3b9aef;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  }
+
+  ion-button {
+    height: 48px;
+    --border-radius: 8px;
+    text-transform: none;
+    font-size: 16px;
+    margin-bottom: 16px;
+
+    &.login-button {
+      --background: #007bff;
+      --background-activated: #0056b3;
+    }
+
+    &.register-button {
+      --background: #28a745;
+      --background-activated: #218838;
+    }
+
+    &.guest-button {
+      --background: #17a2b8;
+      --background-activated: #138496;
+    }
+
+    &.photo-button {
+      --background: #6c757d;
+      --background-activated: #545b62;
+    }
+  }
+}
+
+// Estilos globales para los inputs flotantes
+:host {
+  ion-item.item-has-focus {
+    ion-label {
+      color: #007bff !important;
+    }
+  }
+}
+
+// Ajuste para el modo iOS
+.ios {
+  ion-item {
+    --highlight-height: 0;
+  }
+}

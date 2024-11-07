@@ -1,40 +1,37 @@
 <ion-content class="ion-padding">
   <div class="login-container">
-
     <div class="logo-container">
       <img src="https://i.imgur.com/mexKwhb.png" alt="Logo">
     </div>
 
-    <ion-item>
+    <ion-item lines="none" class="custom-input">
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" name="usuario" [(ngModel)]="usuario" placeholder="Ingrese su Email"></ion-input>
+      <ion-input type="text" name="usuario" [(ngModel)]="usuario"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item lines="none" class="custom-input">
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" name="password" [(ngModel)]="password" placeholder="Escribe tu contraseña"></ion-input>
+      <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
     </ion-item>
 
     <ion-text color="primary" class="forgot-password">
       <a href="#">¿Olvidaste tu contraseña?</a>
     </ion-text>
 
-    <ion-button expand="block" color="primary" (click)="ingresar()">
+    <ion-button expand="block" class="login-button" (click)="ingresar()">
       Iniciar Sesión
     </ion-button>
 
-    <ion-button expand="block" color="secondary" (click)="registrarse()">
+    <ion-button expand="block" class="register-button" (click)="registrarse()">
       Registrarse
     </ion-button>
 
-    <!-- CAMBIALE EL COLOR AL BOTON-->
-    <ion-button expand="block" color="primary" (click)="invitado()">
+    <ion-button expand="block" class="guest-button" (click)="invitado()">
       Ingresar como invitado
     </ion-button>
 
-    <ion-button expand="block" (click)="tomarFoto()">
+    <ion-button expand="block" class="photo-button" (click)="tomarFoto()">
       Tomar Foto
     </ion-button>
-
   </div>
 </ion-content>
