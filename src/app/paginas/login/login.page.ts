@@ -9,6 +9,8 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import {defineCustomElements} from '@ionic/pwa-elements/loader';
 defineCustomElements(window);
 import { Geolocation } from '@capacitor/geolocation';
+import { UserControllerService } from 'src/app/servicios/user-controller.service';
+
 
 @Component({
   selector: 'app-login',
@@ -20,6 +22,8 @@ export class LoginPage implements OnInit {
   usuario: string = "";
   password: string = "";
   isModalOpen = false;
+  user: any
+
 
   async tomarFoto() {
     const image = await Camera.getPhoto({
@@ -36,7 +40,7 @@ export class LoginPage implements OnInit {
   }
   
 
-  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage, private loginFireBase:FirebaseLoginService,) {
+  constructor(public mensaje: ToastController, private route: Router, public alerta: AlertController, private storage: Storage, private loginFireBase:FirebaseLoginService, private usercontroller:UserControllerService) {
     this.obtenerUbicacion();
   }
   
@@ -89,11 +93,17 @@ export class LoginPage implements OnInit {
       this.MensajeError('La contraseña debe tener al menos 5 caracteres.');
     } else {
       this.loginFireBase.login(this.usuario, this.password).then(()=>{
-        console.log("Inicio exitoso");
-        this.mensajeExito();
+        this.usercontroller.ObtenerDatos(this.usuario).subscribe(user => {
+          this.user = user;
+        })
         this.storage.set('email', this.usuario);
         this.storage.set('SessionID', true);
+        // PROBLEMA EN ESTA LINEA //  this.storage.set("datosUser",{correo:this.user.email});
+        console.log("Inicio exitoso");
+
+        this.mensajeExito();
         this.route.navigate(["/home"]);
+        
       });
     }
   }
