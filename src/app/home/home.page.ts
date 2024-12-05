@@ -40,7 +40,7 @@ export class HomePage {
       this.map = new mapboxgl.Map({
         container: 'mapa-box',
         // Usando un estilo que muestra mejor los edificios 3D
-        style: 'mapbox://styles/mapbox/streets-v12',
+        style: 'mapbox://styles/mapbox/navigation-night-v1',
         zoom: 16, // Zoom más cercano para mejor vista 3D
         center: [(await coordenadas).coords.longitude, (await coordenadas).coords.latitude],
         pitch: 60, // Inclinación de la cámara (0-85 grados)
