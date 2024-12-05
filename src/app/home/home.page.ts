@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+
 import { Geolocation } from '@capacitor/geolocation';
 import { environment } from 'src/environments/environment';
-
+import { Marker } from 'mapbox-gl';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +34,9 @@ export class HomePage {
       this.buildMap();
     }
   }
-    async buildMap() {
+    
+  
+  async buildMap() {
       const coordenadas = Geolocation.getCurrentPosition();
       mapboxgl.accessToken = 'pk.eyJ1IjoibWtvbWluLTkzIiwiYSI6ImNtMmtra2twNzAyYTUyam40MHJ4ZWxndXMifQ.XUUZ8mOqe4ylOSoFvKZDHQ';
       
@@ -44,8 +47,7 @@ export class HomePage {
         zoom: 16, // Zoom más cercano para mejor vista 3D
         center: [(await coordenadas).coords.longitude, (await coordenadas).coords.latitude],
         pitch: 60, // Inclinación de la cámara (0-85 grados)
-        bearing: 45, // Rotación del mapa
-        antialias: true, // Mejora la calidad visual
+        bearing: 0, // Rotación del mapa
         dragPan: true,
         scrollZoom: true,
         boxZoom: true,
@@ -58,6 +60,7 @@ export class HomePage {
       this.map.on('load', () => {
         // Añadir capa 3D de edificios
         this.map.addLayer({
+          
           'id': '3d-buildings',
           'source': 'composite',
           'source-layer': 'building',
@@ -88,10 +91,15 @@ export class HomePage {
           }
         });
       });
-
+      
       this.map.resize();
     }
-
+    async addLocationMarker() {
+      const coordinates = await Geolocation.getCurrentPosition();
+      const marker = new Marker()
+        .setLngLat([coordinates.coords.longitude, coordinates.coords.latitude])
+        .addTo(this.map);
+    }
     
 
     home(){
@@ -112,4 +120,6 @@ export class HomePage {
       console.log("Crear");
       this.route.navigate(["/crear"]);
     }
-}
+
+
+  }
